@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ua.shop.ui.controllers.MainUIController">
+    <children>
+        <TabPane layoutX="128.0" layoutY="64.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Додати товар">
+                    <content>
+                        <fx:include fx:id="tab1" source="addGoodPane.fxml" />
+                    </content>
+                </Tab>
+                <Tab text="Продаж товару">
+                    <content>
+                        <fx:include fx:id="tab2" source="outComeGoodsPane.fxml" />
+                    </content>
+                </Tab>
+                <Tab text="Прийом товару">
+                    <content>
+                        <fx:include fx:id="tab3" source="inComeGoodsPane.fxml" />
+                    </content>
+                </Tab>
+                <!--<Tab text="Статистика">-->
+                    <!--<content>-->
+                        <!--&lt;!&ndash;<fx:include source="staisticsPane.fxml" fx:id="tab4"/>&ndash;&gt;-->
+                    <!--</content>-->
+                <!--</Tab>-->
+                <Tab text="База даних товару">
+                    <content>
+                        <fx:include source="goodsDB.fxml" />
+                    </content>
+                </Tab>
+            <Tab text="Звіт по проданому товару">
+              <content>
+                  <fx:include source="report.fxml"/>
+              </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
