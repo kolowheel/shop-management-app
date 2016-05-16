@@ -23,10 +23,10 @@ public class Configs {
 
     @Bean(name = "barcodeHandler")
     public BarcodeHandlerFactory barcodeHandlerFactory(
-        @Value("${barcode.delay}")Long delay,
+        @Value("${barcode.delay}")String delay,
         @Value("${barcode.suffix}")String suffix) {
         BarcodeHandlerFactory barcodeHandlerFactory = new BarcodeHandlerFactory();
-        barcodeHandlerFactory.setDelay(delay);
+        barcodeHandlerFactory.setDelay(Long.parseLong(delay));
         barcodeHandlerFactory.setSuffix(suffix);
         return barcodeHandlerFactory;
     }
@@ -36,8 +36,7 @@ public class Configs {
         @Value("${jdbc.url}") String url,
         @Value("${jdbc.user}") String user,
         @Value("${jdbc.pass}") String pass,
-        @Value("${jdbc.driverClassName}") String driver
-    ) {
+        @Value("${jdbc.driverClassName}") String driver) {
         org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
         dataSource.setUrl(url);
         dataSource.setDriverClassName(driver);
