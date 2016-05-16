@@ -22,7 +22,7 @@
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
-            <version>8.0.6</version>
+            <version>8.0.6_20</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -122,6 +122,14 @@
                 <version>2.0</version>
                 <configuration>
                     <mainClass>com.devcolibri.mavenjavafxapp.MainApp</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 

@@ -23,8 +23,9 @@ public class IncomeGoodsServiceImp implements IncomeGoodsService {
     @Override
     @Transactional
     public void addIncomeTransAndUpdateCount(IncomeTrans trans) {
-
-        trans.getIncomeGoods().stream().forEach(e -> goodsDao.updateCount(e.getCount(), e.getGood().getId()));
+        trans.getIncomeGoods()
+            .stream()
+            .forEach(e -> goodsDao.updateCount(e.getCount(), e.getGood().getId()));
         dao.addIncomeTrans(trans);
     }
 }

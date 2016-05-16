@@ -57,15 +57,12 @@ public class LoginFormController implements Initializable {
             stage.setTitle("Shop management up( " + userName + " )");
             stage.setScene(new Scene(root));
             stage.show();
-            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent windowEvent) {
-                    loginField.setText("");
-                    passField.setText("");
-                    service.logout();
-                    stage.close();
-                    ((Stage) window).show();
-                }
+            stage.setOnCloseRequest(windowEvent -> {
+                loginField.setText("");
+                passField.setText("");
+                service.logout();
+                stage.close();
+                ((Stage) window).show();
             });;
         } catch (IOException e) {
             e.printStackTrace();

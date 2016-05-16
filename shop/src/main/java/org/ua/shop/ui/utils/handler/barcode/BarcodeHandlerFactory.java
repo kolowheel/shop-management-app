@@ -5,17 +5,17 @@ package org.ua.shop.ui.utils.handler.barcode;
  */
 
 public class BarcodeHandlerFactory {
-    private String delay;
+    private Long delay;
     private String suffix;
 
     public BarCodeHandler getHandler(BarCodeHandlerEvent eventHandler) {
         BarCodeHandler handler = new BarCodeHandler(eventHandler);
-        handler.setDelay(Long.parseLong(delay));
+        handler.setDelay(delay);
         handler.setSuffix(suffix);
         return handler;
     }
 
-    public void setDelay(String delay) {
+    public void setDelay(Long delay) {
         this.delay = delay;
     }
 
