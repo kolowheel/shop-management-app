@@ -1,6 +1,7 @@
 package org.ua.shop.apiimpl.service;
 
 import org.apache.log4j.Logger;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.ua.shop.api.UserService;
@@ -8,6 +9,8 @@ import org.ua.shop.apiimpl.dao.UserDao;
 import org.ua.shop.dto.User;
 
 import javax.transaction.Transactional;
+
+import static org.mindrot.jbcrypt.BCrypt.*;
 
 /**
  * @author Yaroslav.Gryniuk
@@ -22,6 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public boolean registerUser(User user) {
+        user.setPassword(hashpw(user.getPassword(), gensalt()));
         return dao.registerUser(user);
     }
 
@@ -31,10 +35,12 @@ public class UserServiceImpl implements UserService {
         if (currentUser != null) {
             logout();
         }
-        currentUser = dao.authorize(login, password);
-        boolean res = currentUser != null;
+        User authorize = dao.authorize(login, password);
+
+        boolean res = checkpw(password,authorize.getPassword());
 
         if (res){
+            currentUser = authorize;
             dao.logUserAction(currentUser,"login");
             logger.info("User login , login : " + currentUser.getLogin() + ", name : " + currentUser.getName());
         }

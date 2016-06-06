@@ -29,8 +29,7 @@ public class HibernateUserDao implements UserDao {
     @Override
     public User authorize(String login, String password) {
         List<User> users = factory.getCurrentSession().getNamedQuery("User.authorize").
-                setString("login", login).
-                setString("password", password).list();
+                setString("login", login).list();
         return users.size() == 1 ? users.get(0) : null;
     }
 
