@@ -4,21 +4,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ua.shop.ui.controllers.MainUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" onKeyPressed="#handleKeyPressed"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ua.shop.ui.controllers.MainUIController">
     <children>
-        <TabPane layoutX="128.0" layoutY="64.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TabPane fx:id="tabPane" layoutX="128.0" layoutY="64.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
-                <Tab text="Додати товар">
+                <Tab text="Додати товар (f1)" fx:id="t1">
                     <content>
                         <fx:include fx:id="tab1" source="addGoodPane.fxml" />
                     </content>
                 </Tab>
-                <Tab text="Продаж товару">
+                <Tab text="Продаж товару (f2)" fx:id="t2">
                     <content>
                         <fx:include fx:id="tab2" source="outComeGoodsPane.fxml" />
                     </content>
                 </Tab>
-                <Tab text="Прийом товару">
+                <Tab text="Прийом товару (f3)" fx:id="t3">
                     <content>
                         <fx:include fx:id="tab3" source="inComeGoodsPane.fxml" />
                     </content>
@@ -28,12 +28,12 @@
                         <!--&lt;!&ndash;<fx:include source="staisticsPane.fxml" fx:id="tab4"/>&ndash;&gt;-->
                     <!--</content>-->
                 <!--</Tab>-->
-                <Tab text="База даних товару">
+                <Tab text="База даних товару (f4)" fx:id="t4">
                     <content>
                         <fx:include source="goodsDB.fxml" />
                     </content>
                 </Tab>
-            <Tab text="Звіт по проданому товару">
+            <Tab text="Звіт по проданому товару (f5)" fx:id="t5">
               <content>
                   <fx:include source="report.fxml"/>
               </content>
